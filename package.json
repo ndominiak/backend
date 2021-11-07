@@ -1,0 +1,8 @@
+{
+  "name": "projeto-biobanco",
+  "version": "1.0.0",
+  "description": "Backend do Sistema de Gerenciamento de Amostras do BIOBANCO da UNIVILLE",
+  "main": "index.js",
+  "author": "Elisandro Moreira <elisandro.moreira@univille.br>",
+  "license": "MIT"
+}
