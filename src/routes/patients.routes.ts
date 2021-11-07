@@ -1,27 +1,16 @@
 import { Router } from "express";
 
-import { Patient } from "../model/Patient";
+import { PatientRepository } from "../repositories/PatientRepository";
 
 const patientsRoutes = Router();
-
-const patients: Patient[] = [];
+const patientsRepository = new PatientRepository();
 
 patientsRoutes.post("/", (request, response) => {
   const { name, cpf, birthday, genre } = request.body;
 
-  const patient = new Patient();
+  patientsRepository.create({ name, cpf, birthday, genre });
 
-  Object.assign(patient, {
-    name,
-    cpf,
-    birthday: new Date(birthday),
-    genre,
-    created_at: new Date(),
-  });
-
-  patients.push(patient);
-
-  return response.status(201).json({ patient });
+  return response.status(201).send();
 });
 
 export { patientsRoutes };
