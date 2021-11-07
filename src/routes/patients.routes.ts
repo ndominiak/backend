@@ -1,21 +1,23 @@
 import { Router } from "express";
-import { v4 as uuidV4 } from "uuid";
+
+import { Patient } from "../model/Patient";
 
 const patientsRoutes = Router();
 
-const patients = [];
+const patients: Patient[] = [];
 
 patientsRoutes.post("/", (request, response) => {
   const { name, cpf, birthday, genre } = request.body;
 
-  const patient = {
-    id: uuidV4(),
+  const patient = new Patient();
+
+  Object.assign(patient, {
     name,
     cpf,
     birthday: new Date(birthday),
     genre,
     created_at: new Date(),
-  };
+  });
 
   patients.push(patient);
 
