@@ -13,4 +13,10 @@ patientsRoutes.post("/", (request, response) => {
   return response.status(201).send();
 });
 
+patientsRoutes.get("/", (request, response) => {
+  const allPatients = patientsRepository.list();
+
+  return response.json(allPatients);
+});
+
 export { patientsRoutes };

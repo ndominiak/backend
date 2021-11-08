@@ -27,6 +27,10 @@ class PatientRepository {
 
     this.patients.push(patient);
   }
+
+  list(): Patient[] {
+    return this.patients;
+  }
 }
 
 export { PatientRepository };
