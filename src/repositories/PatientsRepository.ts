@@ -1,13 +1,7 @@
 import { Patient } from "../model/Patient";
+import { ICreatePatientDTO, IPatientsRepository } from "./IPatientsRepository";
 
-interface ICreatePatientDTO {
-  name: string;
-  cpf: string;
-  birthday: Date;
-  genre: string;
-}
-
-class PatientsRepository {
+class PatientsRepository implements IPatientsRepository {
   private patients: Patient[];
 
   constructor() {
