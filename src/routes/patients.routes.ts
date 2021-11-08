@@ -8,6 +8,12 @@ const patientsRepository = new PatientRepository();
 patientsRoutes.post("/", (request, response) => {
   const { name, cpf, birthday, genre } = request.body;
 
+  const patientAlreadyExists = patientsRepository.findByCPF(cpf);
+
+  if (patientAlreadyExists) {
+    return response.status(400).json({ error: "Patient already exists!" });
+  }
+
   patientsRepository.create({ name, cpf, birthday, genre });
 
   return response.status(201).send();

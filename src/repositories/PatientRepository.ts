@@ -31,6 +31,11 @@ class PatientRepository {
   list(): Patient[] {
     return this.patients;
   }
+
+  findByCPF(cpf: string): Patient {
+    const patient = this.patients.find((patient) => patient.cpf === cpf);
+    return patient;
+  }
 }
 
 export { PatientRepository };
