@@ -1,20 +1,17 @@
 import { Router } from "express";
 
-import { PatientRepository } from "../repositories/PatientRepository";
+import { PatientsRepository } from "../repositories/PatientsRepository";
+import { CreatePatientService } from "../services/CreatePatientService";
 
 const patientsRoutes = Router();
-const patientsRepository = new PatientRepository();
+const patientsRepository = new PatientsRepository();
 
 patientsRoutes.post("/", (request, response) => {
   const { name, cpf, birthday, genre } = request.body;
 
-  const patientAlreadyExists = patientsRepository.findByCPF(cpf);
+  const createPatientService = new CreatePatientService(patientsRepository);
 
-  if (patientAlreadyExists) {
-    return response.status(400).json({ error: "Patient already exists!" });
-  }
-
-  patientsRepository.create({ name, cpf, birthday, genre });
+  createPatientService.execute({ name, cpf, birthday, genre });
 
   return response.status(201).send();
 });

@@ -7,7 +7,7 @@ interface ICreatePatientDTO {
   genre: string;
 }
 
-class PatientRepository {
+class PatientsRepository {
   private patients: Patient[];
 
   constructor() {
@@ -38,4 +38,4 @@ class PatientRepository {
   }
 }
 
-export { PatientRepository };
+export { PatientsRepository };
