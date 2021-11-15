@@ -1,4 +1,4 @@
-import { PatientsRepository } from "../../repositories/PatientsRepository";
+import { PatientsRepository } from "../../repositories/implementations/PatientsRepository";
 import { ListPatientsController } from "./ListPatientsController";
 import { ListPatientsUseCase } from "./ListPatientsUseCase";
 
