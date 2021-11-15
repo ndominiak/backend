@@ -1,4 +1,4 @@
-import { IPatientsRepository } from "../patients/repositories/IPatientsRepository";
+import { IPatientsRepository } from "../repositories/IPatientsRepository";
 
 interface IRequest {
   name: string;

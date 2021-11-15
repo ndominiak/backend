@@ -1,7 +1,7 @@
 import { Router } from "express";
 
 import { PatientsRepository } from "../modules/patients/repositories/PatientsRepository";
-import { CreatePatientService } from "../modules/services/CreatePatientService";
+import { CreatePatientService } from "../modules/patients/services/CreatePatientService";
 
 const patientsRoutes = Router();
 const patientsRepository = new PatientsRepository();
