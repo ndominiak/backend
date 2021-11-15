@@ -4,8 +4,18 @@ import { ICreatePatientDTO, IPatientsRepository } from "./IPatientsRepository";
 class PatientsRepository implements IPatientsRepository {
   private patients: Patient[];
 
-  constructor() {
+  private static INSTANCE: PatientsRepository;
+
+  private constructor() {
     this.patients = [];
+  }
+
+  public static getInstance(): PatientsRepository {
+    if (!PatientsRepository.INSTANCE) {
+      PatientsRepository.INSTANCE = new PatientsRepository();
+    }
+
+    return PatientsRepository.INSTANCE;
   }
 
   create({ name, cpf, birthday, genre }: ICreatePatientDTO): void {
