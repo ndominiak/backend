@@ -1,4 +1,4 @@
-import { IPatientsRepository } from "../repositories/IPatientsRepository";
+import { IPatientsRepository } from "../../repositories/IPatientsRepository";
 
 interface IRequest {
   name: string;
@@ -7,7 +7,7 @@ interface IRequest {
   genre: string;
 }
 
-class CreatePatientService {
+class CreatePatientUseCase {
   constructor(private patientsRepository: IPatientsRepository) {}
 
   execute({ name, cpf, birthday, genre }: IRequest): void {
@@ -21,4 +21,4 @@ class CreatePatientService {
   }
 }
 
-export { CreatePatientService };
+export { CreatePatientUseCase };
