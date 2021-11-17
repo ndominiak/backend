@@ -4,5 +4,9 @@
   "host": "localhost",
   "username": "docker",
   "password": "biobanco",
-  "database": "biobanco"
+  "database": "biobanco",
+  "migrations": ["./src/database/migrations/*.ts"],
+  "cli": {
+    "migrationsDir": "./src/database/migrations"
+  }
 }
