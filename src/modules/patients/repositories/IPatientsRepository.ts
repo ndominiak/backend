@@ -1,4 +1,4 @@
-import { Patient } from "../model/Patient";
+import { Patient } from "../entities/Patient";
 
 interface ICreatePatientDTO {
   name: string;

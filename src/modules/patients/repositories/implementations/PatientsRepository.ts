@@ -1,4 +1,4 @@
-import { Patient } from "../../model/Patient";
+import { Patient } from "../../entities/Patient";
 import { ICreatePatientDTO, IPatientsRepository } from "../IPatientsRepository";
 
 class PatientsRepository implements IPatientsRepository {
