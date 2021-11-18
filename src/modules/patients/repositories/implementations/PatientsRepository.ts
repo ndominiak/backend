@@ -6,18 +6,8 @@ import { ICreatePatientDTO, IPatientsRepository } from "../IPatientsRepository";
 class PatientsRepository implements IPatientsRepository {
   private repository: Repository<Patient>;
 
-  private static INSTANCE: PatientsRepository;
-
-  private constructor() {
+  constructor() {
     this.repository = getRepository(Patient);
-  }
-
-  public static getInstance(): PatientsRepository {
-    if (!PatientsRepository.INSTANCE) {
-      PatientsRepository.INSTANCE = new PatientsRepository();
-    }
-
-    return PatientsRepository.INSTANCE;
   }
 
   async create({

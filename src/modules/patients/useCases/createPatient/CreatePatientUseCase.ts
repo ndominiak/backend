@@ -10,8 +10,8 @@ interface IRequest {
 class CreatePatientUseCase {
   constructor(private patientsRepository: IPatientsRepository) {}
 
-  execute({ name, cpf, birthday, genre }: IRequest): void {
-    const patientAlreadyExists = this.patientsRepository.findByCPF(cpf);
+  async execute({ name, cpf, birthday, genre }: IRequest): Promise<void> {
+    const patientAlreadyExists = await this.patientsRepository.findByCPF(cpf);
 
     if (patientAlreadyExists) {
       throw new Error("Patient already exists!");
