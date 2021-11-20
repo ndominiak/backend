@@ -1,3 +1,5 @@
+import { inject, injectable } from "tsyringe";
+
 import { IPatientsRepository } from "../../repositories/IPatientsRepository";
 
 interface IRequest {
@@ -7,8 +9,12 @@ interface IRequest {
   genre: string;
 }
 
+@injectable()
 class CreatePatientUseCase {
-  constructor(private patientsRepository: IPatientsRepository) {}
+  constructor(
+    @inject("PatientsRepository")
+    private patientsRepository: IPatientsRepository
+  ) {}
 
   async execute({ name, cpf, birthday, genre }: IRequest): Promise<void> {
     const patientAlreadyExists = await this.patientsRepository.findByCPF(cpf);

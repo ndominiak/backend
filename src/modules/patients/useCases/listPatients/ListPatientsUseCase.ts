@@ -1,11 +1,17 @@
+import { inject, injectable } from "tsyringe";
+
 import { Patient } from "../../entities/Patient";
 import { IPatientsRepository } from "../../repositories/IPatientsRepository";
 
+@injectable()
 class ListPatientsUseCase {
-  constructor(private patientsRepository: IPatientsRepository) {}
+  constructor(
+    @inject("PatientsRepository")
+    private patientsRepository: IPatientsRepository
+  ) {}
 
-  execute(): Patient[] {
-    const patients = this.patientsRepository.list();
+  async execute(): Promise<Patient[]> {
+    const patients = await this.patientsRepository.list();
 
     return patients;
   }

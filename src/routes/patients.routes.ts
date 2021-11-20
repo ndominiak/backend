@@ -1,16 +1,15 @@
 import { Router } from "express";
 
-import createPatientController from "../modules/patients/useCases/createPatient";
-import { listPatientsController } from "../modules/patients/useCases/listPatients";
+import { CreatePatientController } from "../modules/patients/useCases/createPatient/CreatePatientController";
+import { ListPatientsController } from "../modules/patients/useCases/listPatients/ListPatientsController";
 
 const patientsRoutes = Router();
 
-patientsRoutes.post("/", (request, response) => {
-  return createPatientController().handle(request, response);
-});
+const createPatientController = new CreatePatientController();
+const listPatientsController = new ListPatientsController();
 
-patientsRoutes.get("/", (request, response) => {
-  return listPatientsController.handle(request, response);
-});
+patientsRoutes.post("/", createPatientController.handle);
+
+patientsRoutes.get("/", listPatientsController.handle);
 
 export { patientsRoutes };
