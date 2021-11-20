@@ -1,7 +1,7 @@
 import { inject, injectable } from "tsyringe";
 
-import { Patient } from "../../entities/Patient";
-import { IPatientsRepository } from "../../repositories/IPatientsRepository";
+import { Patient } from "@modules/patients/entities/Patient";
+import { IPatientsRepository } from "@modules/patients/repositories/IPatientsRepository";
 
 @injectable()
 class ListPatientsUseCase {

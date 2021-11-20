@@ -4,6 +4,13 @@
     "module": "commonjs",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@modules/*": ["modules/*"],
+      "@shared/*": ["shared/*"],
+      "@errors/*": ["errors/*"]
+
+    },
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,   
     "skipLibCheck": true,

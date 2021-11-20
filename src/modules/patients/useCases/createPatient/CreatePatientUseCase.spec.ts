@@ -1,5 +1,6 @@
-import { AppError } from "../../../../errors/AppError";
-import { PatientsRepositoryInMemory } from "../../repositories/in-memory/PatientsRepositoryInMemory";
+import { AppError } from "@errors/AppError";
+import { PatientsRepositoryInMemory } from "@modules/patients/repositories/in-memory/PatientsRepositoryInMemory";
+
 import { CreatePatientUseCase } from "./CreatePatientUseCase";
 
 let createPatientUseCase: CreatePatientUseCase;
