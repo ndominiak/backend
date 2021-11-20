@@ -1,5 +1,6 @@
 import { inject, injectable } from "tsyringe";
 
+import { AppError } from "../../../../errors/AppError";
 import { IPatientsRepository } from "../../repositories/IPatientsRepository";
 
 interface IRequest {
@@ -20,7 +21,7 @@ class CreatePatientUseCase {
     const patientAlreadyExists = await this.patientsRepository.findByCPF(cpf);
 
     if (patientAlreadyExists) {
-      throw new Error("Patient already exists!");
+      throw new AppError("Patient already exists!");
     }
 
     this.patientsRepository.create({ name, cpf, birthday, genre });
