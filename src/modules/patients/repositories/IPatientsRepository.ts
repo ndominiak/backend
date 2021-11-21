@@ -1,4 +1,4 @@
-import { Patient } from "../entities/Patient";
+import { Patient } from "../infra/typeorm/entities/Patient";
 
 interface ICreatePatientDTO {
   name: string;

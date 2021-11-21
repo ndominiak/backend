@@ -1,6 +1,6 @@
 import { inject, injectable } from "tsyringe";
 
-import { Patient } from "@modules/patients/entities/Patient";
+import { Patient } from "@modules/patients/infra/typeorm/entities/Patient";
 import { IPatientsRepository } from "@modules/patients/repositories/IPatientsRepository";
 
 @injectable()

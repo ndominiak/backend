@@ -1,7 +1,7 @@
 import { Router } from "express";
 
-import { CreatePatientController } from "../modules/patients/useCases/createPatient/CreatePatientController";
-import { ListPatientsController } from "../modules/patients/useCases/listPatients/ListPatientsController";
+import { CreatePatientController } from "@modules/patients/useCases/createPatient/CreatePatientController";
+import { ListPatientsController } from "@modules/patients/useCases/listPatients/ListPatientsController";
 
 const patientsRoutes = Router();
 

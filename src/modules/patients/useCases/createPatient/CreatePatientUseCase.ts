@@ -1,7 +1,7 @@
 import { inject, injectable } from "tsyringe";
 
-import { AppError } from "@errors/AppError";
 import { IPatientsRepository } from "@modules/patients/repositories/IPatientsRepository";
+import { AppError } from "@shared/errors/AppError";
 
 interface IRequest {
   name: string;

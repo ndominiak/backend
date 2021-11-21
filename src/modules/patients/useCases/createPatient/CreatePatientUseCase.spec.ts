@@ -1,5 +1,5 @@
-import { AppError } from "@errors/AppError";
 import { PatientsRepositoryInMemory } from "@modules/patients/repositories/in-memory/PatientsRepositoryInMemory";
+import { AppError } from "@shared/errors/AppError";
 
 import { CreatePatientUseCase } from "./CreatePatientUseCase";
 

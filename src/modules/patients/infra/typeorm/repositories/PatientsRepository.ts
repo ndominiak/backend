@@ -1,7 +1,11 @@
 import { getRepository, Repository } from "typeorm";
 
-import { Patient } from "../../entities/Patient";
-import { ICreatePatientDTO, IPatientsRepository } from "../IPatientsRepository";
+import {
+  ICreatePatientDTO,
+  IPatientsRepository,
+} from "@modules/patients/repositories/IPatientsRepository";
+
+import { Patient } from "../entities/Patient";
 
 class PatientsRepository implements IPatientsRepository {
   private repository: Repository<Patient>;
