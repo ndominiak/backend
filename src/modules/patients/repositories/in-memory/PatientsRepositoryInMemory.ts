@@ -1,4 +1,5 @@
-import { Patient } from "../../infra/typeorm/entities/Patient";
+import { Patient } from "@modules/patients/infra/typeorm/entities/Patient";
+
 import { ICreatePatientDTO, IPatientsRepository } from "../IPatientsRepository";
 
 class PatientsRepositoryInMemory implements IPatientsRepository {
