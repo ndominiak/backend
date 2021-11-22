@@ -67,6 +67,10 @@ class SamplesRepositoryInMemory implements ISamplesRepository {
 
     this.samples.push(sample);
   }
+
+  async findByJoinvascId(joinvasc_id: string): Promise<Sample> {
+    return this.samples.find((sample) => sample.joinvasc_id === joinvasc_id);
+  }
 }
 
 export { SamplesRepositoryInMemory };

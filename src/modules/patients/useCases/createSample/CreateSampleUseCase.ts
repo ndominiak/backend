@@ -1,6 +1,7 @@
 // import { inject, injectable } from "tsyringe";
 
 import { ISamplesRepository } from "@modules/patients/repositories/ISamplesRepository";
+import { AppError } from "@shared/errors/AppError";
 
 interface IRequest {
   joinvasc_id?: string;
@@ -66,7 +67,15 @@ class CreateSampleUseCase {
     choice_reason,
     patient_id,
   }: IRequest): Promise<void> {
-    this.samplesRepository.create({
+    const sampleAlreadyExists = await this.samplesRepository.findByJoinvascId(
+      joinvasc_id
+    );
+
+    if (sampleAlreadyExists) {
+      throw new AppError("Sample already exists!");
+    }
+
+    await this.samplesRepository.create({
       joinvasc_id,
       tags,
       toast,

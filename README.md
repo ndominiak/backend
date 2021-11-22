@@ -25,6 +25,7 @@
 
 **RN**
 - Não deve ser possível cadastrar uma amostra para um paciente não cadastrado
+- Não deve ser possível cadastrar uma amostra com o joinvasc id já existente
 - Para cadastrar uma nova amostra o usuário deve estar logado no sistema
 
 ## CADASTRO DE AMOSTRAS DE CONTROLE
