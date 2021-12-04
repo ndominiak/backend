@@ -1,4 +1,4 @@
-// import { inject, injectable } from "tsyringe";
+import { inject, injectable } from "tsyringe";
 
 import { ISamplesRepository } from "@modules/patients/repositories/ISamplesRepository";
 import { AppError } from "@shared/errors/AppError";
@@ -32,10 +32,10 @@ interface IRequest {
   patient_id: string;
 }
 
-// @injectable()
+@injectable()
 class CreateSampleUseCase {
   constructor(
-    // @inject("SamplesRepository")
+    @inject("SamplesRepository")
     private samplesRepository: ISamplesRepository
   ) {}
 
