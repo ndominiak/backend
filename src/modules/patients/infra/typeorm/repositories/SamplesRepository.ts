@@ -79,6 +79,14 @@ class SamplesRepository implements ISamplesRepository {
 
     return sample;
   }
+
+  async findByPatientId(patient_id: string): Promise<Sample> {
+    const sample = await this.repository.findOne({
+      patient_id,
+    });
+
+    return sample;
+  }
 }
 
 export { SamplesRepository };

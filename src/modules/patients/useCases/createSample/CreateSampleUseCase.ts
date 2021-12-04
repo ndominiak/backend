@@ -75,6 +75,13 @@ class CreateSampleUseCase {
       throw new AppError("Sample already exists!");
     }
 
+    const patientAlreadyHaveSample =
+      await this.samplesRepository.findByPatientId(patient_id);
+
+    if (patientAlreadyHaveSample) {
+      throw new AppError("Patient already have sample!");
+    }
+
     await this.samplesRepository.create({
       joinvasc_id,
       tags,

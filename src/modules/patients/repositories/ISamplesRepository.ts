@@ -5,6 +5,7 @@ interface ISamplesRepository {
   create(data: ICreateSampleDTO): Promise<void>;
 
   findByJoinvascId(joinvasc_id: string): Promise<Sample>;
+  findByPatientId(patient_id: string): Promise<Sample>;
 }
 
 export { ISamplesRepository };
