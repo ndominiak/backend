@@ -89,6 +89,10 @@ class SamplesRepository implements ISamplesRepository {
 
     return sample;
   }
+
+  list(): Promise<Sample[]> {
+    throw new Error("Method not implemented.");
+  }
 }
 
 export { SamplesRepository };

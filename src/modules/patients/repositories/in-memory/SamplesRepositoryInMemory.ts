@@ -77,6 +77,10 @@ class SamplesRepositoryInMemory implements ISamplesRepository {
   async findByPatientId(patient_id: string): Promise<Sample> {
     return this.samples.find((sample) => sample.patient_id === patient_id);
   }
+
+  async list(): Promise<Sample[]> {
+    return this.samples;
+  }
 }
 
 export { SamplesRepositoryInMemory };

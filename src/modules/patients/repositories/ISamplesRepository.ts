@@ -6,6 +6,7 @@ interface ISamplesRepository {
 
   findByJoinvascId(joinvasc_id: string): Promise<Sample>;
   findByPatientId(patient_id: string): Promise<Sample>;
+  list(): Promise<Sample[]>;
 }
 
 export { ISamplesRepository };
