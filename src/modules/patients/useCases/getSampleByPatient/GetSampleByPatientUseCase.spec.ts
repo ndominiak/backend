@@ -1,14 +1,14 @@
 import { SamplesRepositoryInMemory } from "@modules/patients/repositories/in-memory/SamplesRepositoryInMemory";
 
-import { ListSamplesByPatientUseCase } from "./ListSamplesByPatientUseCase";
+import { GetSampleByPatientUseCase } from "./GetSampleByPatientUseCase";
 
-let listSamplesByPatientUseCase: ListSamplesByPatientUseCase;
+let getSampleByPatientUseCase: GetSampleByPatientUseCase;
 let samplesRepositoryInMemory: SamplesRepositoryInMemory;
 
 describe("List Sample by Patient", () => {
   beforeEach(() => {
     samplesRepositoryInMemory = new SamplesRepositoryInMemory();
-    listSamplesByPatientUseCase = new ListSamplesByPatientUseCase(
+    getSampleByPatientUseCase = new GetSampleByPatientUseCase(
       samplesRepositoryInMemory
     );
   });
@@ -43,7 +43,7 @@ describe("List Sample by Patient", () => {
       joinvasc_id: "123",
     });
 
-    const sampleByPatient = await listSamplesByPatientUseCase.execute({
+    const sampleByPatient = await getSampleByPatientUseCase.execute({
       patient_id: "some patient id",
     });
 

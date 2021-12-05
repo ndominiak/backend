@@ -5,7 +5,7 @@ interface IRequest {
   patient_id: string;
 }
 
-class ListSamplesByPatientUseCase {
+class GetSampleByPatientUseCase {
   constructor(private samplesRepository: ISamplesRepository) {}
 
   async execute({ patient_id }: IRequest): Promise<Sample> {
@@ -14,4 +14,4 @@ class ListSamplesByPatientUseCase {
   }
 }
 
-export { ListSamplesByPatientUseCase };
+export { GetSampleByPatientUseCase };
