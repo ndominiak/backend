@@ -90,8 +90,10 @@ class SamplesRepository implements ISamplesRepository {
     return sample;
   }
 
-  list(): Promise<Sample[]> {
-    throw new Error("Method not implemented.");
+  async list(): Promise<Sample[]> {
+    const samples = await this.repository.find();
+
+    return samples;
   }
 }
 
