@@ -1,5 +1,6 @@
 import { inject, injectable } from "tsyringe";
 
+import { Sample } from "@modules/patients/infra/typeorm/entities/Sample";
 import { ISamplesRepository } from "@modules/patients/repositories/ISamplesRepository";
 import { AppError } from "@shared/errors/AppError";
 
@@ -66,7 +67,7 @@ class CreateSampleUseCase {
     result,
     choice_reason,
     patient_id,
-  }: IRequest): Promise<void> {
+  }: IRequest): Promise<Sample> {
     const sampleAlreadyExists = await this.samplesRepository.findByJoinvascId(
       joinvasc_id
     );
@@ -82,7 +83,7 @@ class CreateSampleUseCase {
       throw new AppError("Patient already have sample!");
     }
 
-    await this.samplesRepository.create({
+    const sample = await this.samplesRepository.create({
       joinvasc_id,
       tags,
       toast,
@@ -110,6 +111,8 @@ class CreateSampleUseCase {
       choice_reason,
       patient_id,
     });
+
+    return sample;
   }
 }
 

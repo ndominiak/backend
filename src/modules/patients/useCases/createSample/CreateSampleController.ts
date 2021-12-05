@@ -36,7 +36,7 @@ class CreateSampleController {
 
     const createSampleUseCase = container.resolve(CreateSampleUseCase);
 
-    await createSampleUseCase.execute({
+    const sample = await createSampleUseCase.execute({
       joinvasc_id,
       tags,
       toast,
@@ -65,7 +65,7 @@ class CreateSampleController {
       patient_id,
     });
 
-    return response.status(201).send();
+    return response.status(201).json(sample);
   }
 }
 

@@ -39,7 +39,7 @@ class SamplesRepository implements ISamplesRepository {
     tags,
     toast,
     joinvasc_id,
-  }: ICreateSampleDTO): Promise<void> {
+  }: ICreateSampleDTO): Promise<Sample> {
     const sample = this.repository.create({
       a260nm,
       a280nm,
@@ -70,6 +70,8 @@ class SamplesRepository implements ISamplesRepository {
     });
 
     await this.repository.save(sample);
+
+    return sample;
   }
 
   async findByJoinvascId(joinvasc_id: string): Promise<Sample> {

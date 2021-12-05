@@ -33,7 +33,7 @@ class SamplesRepositoryInMemory implements ISamplesRepository {
     tags,
     toast,
     joinvasc_id,
-  }: ICreateSampleDTO): Promise<void> {
+  }: ICreateSampleDTO): Promise<Sample> {
     const sample = new Sample();
 
     Object.assign(sample, {
@@ -66,6 +66,8 @@ class SamplesRepositoryInMemory implements ISamplesRepository {
     });
 
     this.samples.push(sample);
+
+    return sample;
   }
 
   async findByJoinvascId(joinvasc_id: string): Promise<Sample> {
