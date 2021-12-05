@@ -7,8 +7,6 @@ class GetSampleByPatientController {
   async handle(request: Request, response: Response): Promise<Response> {
     const { patient_id } = request.query;
 
-    console.log(patient_id);
-
     const getSampleByPatientUseCase = container.resolve(
       GetSampleByPatientUseCase
     );
