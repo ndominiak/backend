@@ -40,7 +40,7 @@ interface IRequest {
 @injectable()
 class CreateControlSampleUseCase {
   constructor(
-    @inject("SamplesRepository")
+    @inject("ControlSamplesRepository")
     private controlSamplesRepository: IControlSamplesRepository
   ) {}
 
