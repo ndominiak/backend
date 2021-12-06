@@ -80,7 +80,7 @@ class CreateControlSampleUseCase {
       await this.controlSamplesRepository.findByPatientId(patient_id);
 
     if (patientAlreadyHaveSample) {
-      throw new AppError("Patient already have sample!");
+      throw new AppError("Patient already have control sample!");
     }
 
     const controlSample = await this.controlSamplesRepository.create({
