@@ -44,4 +44,22 @@ describe("Authenticate User", () => {
       });
     }).rejects.toBeInstanceOf(AppError);
   });
+
+  it("should not be able to athenticate with incorrect password", async () => {
+    const user: ICreateUserDTO = {
+      name: "John Error",
+      email: "test@test.com",
+      registration: "9999",
+      password: "1234",
+    };
+
+    await createUserUseCase.execute(user);
+
+    expect(async () => {
+      await authenticateUserUseCase.execute({
+        registration: user.registration,
+        password: "123456",
+      });
+    }).rejects.toBeInstanceOf(AppError);
+  });
 });
