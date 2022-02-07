@@ -3,13 +3,13 @@ import express, { NextFunction, Request, Response } from "express";
 
 import "express-async-errors";
 
-import "@shared/infra/typeorm";
-
 import { AppError } from "@shared/errors/AppError";
+import createConnection from "@shared/infra/typeorm";
 import "@shared/container";
 
 import { router } from "./routes";
 
+createConnection();
 const app = express();
 const port = 3333;
 
