@@ -4,11 +4,15 @@ import { CreatePatientController } from "@modules/patients/useCases/createPatien
 import { GetPatientByCpfController } from "@modules/patients/useCases/getPatientByCpf/GetPatientByCpfController";
 import { ListPatientsController } from "@modules/patients/useCases/listPatients/ListPatientsController";
 
+import { ensureAuthenticated } from "../middlewares/ensureAuthenticated";
+
 const patientsRoutes = Router();
 
 const createPatientController = new CreatePatientController();
 const listPatientsController = new ListPatientsController();
 const getPatientByCpfController = new GetPatientByCpfController();
+
+patientsRoutes.use(ensureAuthenticated);
 
 patientsRoutes.post("/", createPatientController.handle);
 

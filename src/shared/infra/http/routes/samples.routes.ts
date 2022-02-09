@@ -4,11 +4,15 @@ import { CreateSampleController } from "@modules/patients/useCases/createSample/
 import { GetSampleByPatientController } from "@modules/patients/useCases/getSampleByPatient/GetSampleByPatientController";
 import { ListSamplesController } from "@modules/patients/useCases/listSamples/ListSamplesController";
 
+import { ensureAuthenticated } from "../middlewares/ensureAuthenticated";
+
 const samplesRoutes = Router();
 
 const createSampleController = new CreateSampleController();
 const listSamplesController = new ListSamplesController();
 const getSampleByPatientController = new GetSampleByPatientController();
+
+samplesRoutes.use(ensureAuthenticated);
 
 samplesRoutes.post("/", createSampleController.handle);
 
