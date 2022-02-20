@@ -1,4 +1,5 @@
 import "reflect-metadata";
+import cors from "cors";
 import express, { NextFunction, Request, Response } from "express";
 
 import "express-async-errors";
@@ -11,6 +12,8 @@ import { router } from "./routes";
 
 createConnection();
 const app = express();
+app.use(cors());
+
 const port = 3333;
 
 app.use(express.json());
