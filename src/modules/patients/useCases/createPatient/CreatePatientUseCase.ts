@@ -6,7 +6,7 @@ import { AppError } from "@shared/errors/AppError";
 interface IRequest {
   name: string;
   cpf: string;
-  birthday: Date;
+  formattedBirthday: Date;
   genre: string;
 }
 
@@ -17,7 +17,12 @@ class CreatePatientUseCase {
     private patientsRepository: IPatientsRepository
   ) {}
 
-  async execute({ name, cpf, birthday, genre }: IRequest): Promise<void> {
+  async execute({
+    name,
+    cpf,
+    formattedBirthday: birthday,
+    genre,
+  }: IRequest): Promise<void> {
     const patientAlreadyExists = await this.patientsRepository.findByCPF(cpf);
 
     if (patientAlreadyExists) {
